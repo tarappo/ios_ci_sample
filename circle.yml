@@ -3,4 +3,4 @@ machine:
     version: 8.3.3
 test:
   override:
-    - gym
+    - bundle exec fastlane build
