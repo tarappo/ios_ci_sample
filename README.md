@@ -5,4 +5,4 @@
 [![Build Status](https://travis-ci.org/tarappo/ci-sample-ios.svg?branch=master)](https://travis-ci.org/tarappo/ci-sample-ios)
 
 ## Other Badge
-[![Dependency Status](https://dependencyci.com/github/tarappo/ios_ci_sample/badge)](https://dependencyci.com/github/tarappo/ios_ci_sample)
+[![Dependency Status](https://dependencyci.com/github/tarappo/ci-sample-ios/badge)](https://dependencyci.com/github/tarappo/ci-sample-ios)
