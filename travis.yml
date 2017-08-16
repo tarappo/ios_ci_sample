@@ -1,2 +1,21 @@
+language: swift
+
+osx_image: xcode8.3
+
+xcode_project: ci-sample.xcodeproj
+xcode_scheme: ci-sample
+
+before_install:
+  - bundle install --path ./vendor/bundle
+  - gem install xcpretty-travis-formatter --no-document
+
+before_script:
+
+script:
+  - bundle exec fastlane build
+
+after_success:
+
+
 notifications:
   email: false
