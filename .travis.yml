@@ -18,7 +18,7 @@ before_script:
   - security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain
   - security import ./travis/travis.p12 -k ~/Library/Keychains/ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
   - mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-  - cp "./travis/travis.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
+  - mv "./travis/travis.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/ci-sample-adhoc.mobileprovision
 
 script:
   - bundle exec fastlane build
