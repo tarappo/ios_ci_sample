@@ -6,16 +6,28 @@ xcode_project: ci-sample.xcodeproj
 xcode_scheme: ci-sample
 
 before_install:
-  - bundle install --path ./vendor/bundle
+  - openssl aes-256-cbc -K $encrypted_447977b53217_key -iv $encrypted_447977b53217_iv -in travis/secrets.tar.enc -out travis/secrets.tar -d
+  - tar xvf ./.travis/secrets.tar -C ./.travis
   - gem install xcpretty-travis-formatter --no-document
+  - bundle install --path ./vendor/bundle
 
 before_script:
+  - security create-keychain -p travis ios-build.keychain
+  - security default-keychain -s ios-build.keychain
+  - security unlock-keychain -p travis ios-build.keychain
+  - security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain
+  - security import ./.travis/travis.p12 -k ~/Library/Keychains/ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
+  - mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+  - cp "./.travis/profiles/travis.mobileprovision" ~/Library/MobileDevice/Provisioning\ Profiles/
 
 script:
   - bundle exec fastlane build
 
 after_success:
 
+after_script:
+  - security delete-keychain ios-build.keychain
+  - rm -f "~/Library/MobileDevice/Provisioning Profiles/"
 
 notifications:
   email: false
