@@ -12,15 +12,16 @@ before_install:
   - bundle install --path ./vendor/bundle
 
 before_script:
-  - security create-keychain -p travis ios-build.keychain
+  - security create-keychain -p sample ios-build.keychain
   - security default-keychain -s ios-build.keychain
-  - security unlock-keychain -p travis ios-build.keychain
+  - security unlock-keychain -p sample ~/Library/Keychains/ios-build.keychain
   - security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain
   - security import ./travis/travis.p12 -k ~/Library/Keychains/ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
   - mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
   - cp ./travis/*mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
 script:
+  - security unlock-keychain -p sample ~/Library/Keychains/ios-build.keychain
   - bundle exec fastlane build
 
 after_success:
