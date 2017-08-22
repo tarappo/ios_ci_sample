@@ -13,10 +13,10 @@ before_install:
 
 before_script:
   - security create-keychain -p sample ios-build.keychain
-  - security default-keychain -s ios-build.keychain
   - security unlock-keychain -p sample ios-build.keychain
   - security set-keychain-settings -t 3600 -l ~/Library/Keychains/ios-build.keychain
-  - security import ./travis/travis.p12 -k ~/Library/Keychains/ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
+  - security import ./travis/travis.p12 -k ios-build.keychain -P ${KEY_PASSWORD} -T /usr/bin/codesign
+  - security default-keychain -s ios-build.keychain
   - mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
   - cp ./travis/*mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
