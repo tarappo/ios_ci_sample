@@ -22,6 +22,7 @@ before_script:
   - cp ./travis/*mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
 
 script:
+  - security unlock-keychain -p travis ios-build.keychain
   - bundle exec fastlane build
 
 after_success:
