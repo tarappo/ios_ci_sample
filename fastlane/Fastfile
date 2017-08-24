@@ -30,7 +30,7 @@ platform :ios do
     import_certificate(
       certificate_path: "travis/dist.p12",
       certificate_password: ENV["KEY_PASSWORD"],
-      keychain_name: keychain_name
+      keychain_name: keychain_name,
       keychain_password: keychain_password
     )
   end
