@@ -3,6 +3,8 @@ fastlane_version "2.53.1"
 default_platform :ios
 
 platform :ios do
+  keychain_name = "ios-build.keychain"
+  keychain_password = SecureRandom.base64
 
   lane :build do
     clean_build_artifacts
@@ -12,6 +14,24 @@ platform :ios do
       scheme: "ci-sample",
       configuration: "Release",
       export_method: "ad-hoc"
+    )
+  end
+
+  lane :setup_certificate do
+    create_keychain(
+      name: keychain_name,
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      add_to_search_list: true
+    )
+
+    import_certificate(
+      certificate_path: "travis/dist.p12",
+      certificate_password: ENV["KEY_PASSWORD"],
+      keychain_name: keychain_name
+      keychain_password: keychain_password
     )
   end
 
