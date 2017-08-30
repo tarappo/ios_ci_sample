@@ -23,6 +23,10 @@ bash -l -c "$(curl -sfL https://raw.githubusercontent.com/bitrise-tools/codesign
 
 ### CircleCI
 #### Webからの設定
+![CircleCI設定画面](img/circleci-setting-list.png)
+
+設定画面の「Code Signing」からp12ファイルとProvisioning ProfileをアップロードすればOKです。
+
 
 ### Travis CI
 Travis CIではWebページから設定をすることはできず、自身でファイルを管理する＆自らコマンドを叩く必要があります。
