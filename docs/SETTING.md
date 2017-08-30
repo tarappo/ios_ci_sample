@@ -1,8 +1,8 @@
 # 各CIの初期設定
-以下の各クラウドCIに関して、アプリをビルドできるようにするまでの初期設定の仕方について明記しています。
+以下の各クラウドCIに関して、アプリをビルドできるようにするためのp12ファイルとProvisioning Profileの初期設定の仕方について明記しています。
 
 ## 前提作業
-以下の作業を簡単にやってくれるか、1から自前でやるかの違いがあります。
+各CIにおいて、以下の作業を簡単にやってくれるか、1から自前でやるかの違いがあります。
 
  - iOSアプリをビルドする上では、p12ファイルとProvisioning Profileが無ければいけません。
  - p12ファイルはkeychainに登録する必要があります。
@@ -105,6 +105,12 @@ before_script:
 
 ### NEVERCODE
 #### Webからの設定
+![CircleCI設定画面](img/nevercode-setting.png)
+
+設定画面の「Code Signing」からp12ファイルとProvisioning ProfileをアップロードすればOKです。
 
 ### Buddybuild
 #### Webからの設定
+![CircleCI設定画面](img/buddybuild-setting.png)
+
+設定画面の「Code signing」からp12ファイルとProvisioning ProfileをアップロードすればOKです。
