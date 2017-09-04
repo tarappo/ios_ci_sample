@@ -2,20 +2,24 @@
 それぞれの特徴を以下に明記します。
 
 ## クラウドCI
+ - Bitrise
+ - CircleCI
+ - Travis CI
+ - NEVERCODE
+ - [buddybuild](./services/buddybuild.md)
 
 ### 機能面
 
-|   |Bitrise|CircleCI|Travis CI|NEVERCODE|Buddybuild|
+|   |Bitrise|CircleCI|Travis CI|NEVERCODE|buddybuild|
 |:--|:------|:-------|:--------|:--------|:---------|
 |(1)|o      |o       |x        |o        |o         |
+|(2)|o      |        |         |         |o         |
+|(3)|       |        |         |         |21days    |
 
 
  - (1) Webからのp12ファイル、ProvisioningProfileの設定
- - (2) 対応バージョン管理システム
- - (3) ビルド上限数
- - (4) ビルド上限時間
- - (5) 同時ビルド数
- - (6) スケジュール機能
+ - (2) Freeプランの有無
+ - (3) free trial期間
 
 ### 値段と機能の関係性
 
