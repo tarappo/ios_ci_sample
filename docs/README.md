@@ -2,8 +2,8 @@
 それぞれの特徴を以下に明記します。
 
 ## クラウドCI
- - Bitrise
- - CircleCI
+ - [Bitrise](./services/bitrise.md)
+ - [CircleCI](./services/circleci.md)
  - Travis CI
  - NEVERCODE
  - [buddybuild](./services/buddybuild.md)
@@ -13,8 +13,8 @@
 |   |Bitrise|CircleCI|Travis CI|NEVERCODE|buddybuild|
 |:--|:------|:-------|:--------|:--------|:---------|
 |(1)|o      |o       |x        |o        |o         |
-|(2)|o      |        |         |         |o         |
-|(3)|       |        |         |         |21days    |
+|(2)|o      |x       |         |         |o         |
+|(3)|x      |2weeks  |         |         |21days    |
 
 
  - (1) Webからのp12ファイル、ProvisioningProfileの設定
