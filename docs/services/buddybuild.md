@@ -10,19 +10,21 @@ https://www.buddybuild.com/
 上記の情報から一部をピックアップして以下に書きます。
 以下の値段は、Annual Plunでの月単位の値段であり、毎月払う場合はもう少し高くなる。
 
- - STARTER PLANS：並列数：1
-   - Free：$0/mo
-     - ビルド上限時間：20分
-   - Standard：$71/mo
-   - Plus：$114/mo
 
- - BUSINESS PLANS
-   - Team：$245/mo
-     - 並列数：3
-   - Business：$429/mo
-     - 並列数：5
-   - Business Plus：$1,037/mo
-     - 並列数：10
+STARTER PLANS
+
+|     |Free      |Standard|Plus   |
+|:----|:---------|:-------|:------|
+|値段  |$0/mo     |$71/mo  |$114/mo|
+|並列数|1          |1      |1      |
+|ビルド上限時間|20分|-       |-      |
 
 
-無料で利用する場合は、ビルド上限時間が設定されます。
+BUSINESS PLANS
+
+|     |Team      |Business|Business Plus|
+|:----|:---------|:-------|:------------|
+|値段  |$245/mo   |$429/mo |$1,037/mo  |
+|並列数|3         |5      |10      |
+|Video Recording of Tests|-|o|o|
+|ビルド上限時間|-|-       |-      |
