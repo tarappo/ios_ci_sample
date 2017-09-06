@@ -18,3 +18,18 @@ https://www.bitrise.io
 |ビルド上限時間|10|45  |
 
 
+ORGANIZATION
+
+|     |STANDARD|ELITE   |
+|:----|:-------|:------|
+|値段  |$45/mo  |$90/mo |
+|並列数|2-      |3-     |
+|ビルド上限時間|60|75  |
+
+ELITEになると `SUPERFAST BUILD MACHINES` になる。
+
+ - MAC: 2 X 2.7 GHz / 8 GB RAM
+ - LINUX: 4 X 2.6 GHz / 15 GB RAM
+
+ 
+個人で使う場合は、`HOBBY` や `TEAM`　で良いが会社で使う場合は、ORGANIZATIONのほうになる。
