@@ -4,8 +4,8 @@
 ## クラウドCI
  - [Bitrise](./services/bitrise.md)
  - [CircleCI](./services/circleci.md)
- - Travis CI
- - NEVERCODE
+ - [Travis CI](./services/travisci.md)
+ - [NEVERCODE](./services/nevercode.md)
  - [buddybuild](./services/buddybuild.md)
 
 ### 機能面
@@ -13,8 +13,8 @@
 |   |Bitrise|CircleCI|Travis CI|NEVERCODE|buddybuild|
 |:--|:------|:-------|:--------|:--------|:---------|
 |(1)|o      |o       |x        |o        |o         |
-|(2)|o      |x       |         |         |o         |
-|(3)|x      |2weeks  |         |         |21days    |
+|(2)|o      |x       |x        |o        |o         |
+|(3)|x      |2weeks  |100ビルドまで|14days |21days    |
 
 
  - (1) Webからのp12ファイル、ProvisioningProfileの設定
