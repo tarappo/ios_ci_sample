@@ -2,13 +2,13 @@
 それぞれの特徴を以下に明記します。
 
 ## クラウドCI
- - [Bitrise](./services/bitrise.md)
- - [CircleCI](./services/circleci.md)
- - [Travis CI](./services/travisci.md)
- - [NEVERCODE](./services/nevercode.md)
- - [buddybuild](./services/buddybuild.md)
+ - (1) [Bitrise](./services/bitrise.md)
+ - (2) [CircleCI](./services/circleci.md)
+ - (3) [Travis CI](./services/travisci.md)
+ - (4) [NEVERCODE](./services/nevercode.md)
+ - (5) [buddybuild](./services/buddybuild.md)
 
-### 機能面
+### 機能などの比較
 
 |   |Bitrise|CircleCI|Travis CI|NEVERCODE|buddybuild|
 |:--|:------|:-------|:--------|:--------|:---------|
@@ -21,7 +21,37 @@
  - (2) Freeプランの有無
  - (3) free trial期間
 
-### 値段と機能の関係性
+### 値段一覧
+値段でソートした一覧は以下
+
+
+|                  |(4)|(5)|(1)|(2)|(4)|(1)|
+|:-----------------|:--|:--|:--|:--|:--|:--|
+|値段               |0  |0  |0  |39 |43 |45 |
+|並列数             |1  |1  |1  |2   |1 |1- |
+|ビルド上限時間(分)   |-  |20 |10 |-  |-  |45 |
+|月間ビルド上限時間(分)|-  |-  |-  |500|-  |-  |
+
+
+|            |
+|:-----------|
+|値段         |
+|並列数       |
+|ビルド上限時間(分)|
+|月間ビルド上限時間(分)|
+
+
+|            |
+|:-----------|
+|値段         |
+|並列数       |
+|ビルド上限時間(分)|
+|月間ビルド上限時間(分)|
+
+
+#### 注意
+公開されているプランの情報から一覧を作っています。
+また年間支払プランがある場合は、そちらを採用しています。
 
 
 ### オリジナル機能
