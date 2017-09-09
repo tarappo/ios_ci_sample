@@ -105,12 +105,12 @@ before_script:
 
 ### NEVERCODE
 #### Webからの設定
-![CircleCI設定画面](img/nevercode-setting.png)
+![NEVERCODE設定画面](img/nevercode-setting.png)
 
 設定画面の「Code Signing」からp12ファイルとProvisioning ProfileをアップロードすればOKです。
 
-### Buddybuild
+### buddybuild
 #### Webからの設定
-![CircleCI設定画面](img/buddybuild-setting.png)
+![buddybuild設定画面](img/buddybuild-setting.png)
 
 設定画面の「Code signing」からp12ファイルとProvisioning ProfileをアップロードすればOKです。
