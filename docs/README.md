@@ -72,6 +72,31 @@ $400以上
 ### オリジナル機能
 独自の機能周りについての紹介
 
+#### Bitrise
+ - スケジュールビルド
+  - 曜日指定などが可能
+ - curlでビルド
+
+#### Travis CI
+ - Cron Jobs
+   - Interval: monthly / weekly / daily
+
+#### NEVERCODE
+ - curlでビルド
+
+#### buddybuild
+単にビルドトリガーだけでなく[API](https://apidocs.buddybuild.com/builds/index.html)として色々と提供している
+
+ - curlでビルド
+
+#### 補足
+fastlaneでやってくれるようなことの一部をおこなってくれるCIもある。
+例えば、buddybuildではAuto-versioningがある。
+
+最近ではCIはフィードバック結果を見せる場ではなく、あくまでもハブとなり、他と連携する機能を増やしている傾向がある。
+結果などはSlackやJIRAなどと連携するといった機能を持つものも多い。
+
+
 ### 各種情報まとめ
  - [初期設定情報](SETTING.md)
    - アプリをビルドするまでに必要な作業を明記しています。
