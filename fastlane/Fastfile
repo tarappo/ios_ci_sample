@@ -3,17 +3,21 @@ fastlane_version "2.53.1"
 default_platform :ios
 
 platform :ios do
-  before_all do
-    slack(
-      message: "start: #{ENV['CI_NAME']}",
-      success: true
-    )
-  end
-
   keychain_name = "ios-build.keychain"
   keychain_password = SecureRandom.base64
 
   lane :build do
+    clean_build_artifacts
+
+    gym(
+      project: "ci-sample.xcodeproj",
+      scheme: "ci-sample",
+      configuration: "Development",
+      export_method: "development"
+    )
+  end
+
+  lane :build_adhoc do
     clean_build_artifacts
 
     gym(
