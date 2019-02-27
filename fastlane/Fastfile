@@ -12,7 +12,7 @@ platform :ios do
     gym(
       project: "ci-sample.xcodeproj",
       scheme: "ci-sample",
-      configuration: "Development",
+      configuration: "Debug",
       export_method: "development"
     )
   end
