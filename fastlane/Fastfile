@@ -58,12 +58,4 @@ platform :ios do
       keychain_password: keychain_password
     )
   end
-
-  after_all do
-    slack(
-      message: "finish: #{ENV['CI_NAME']}",
-      success: true
-    )
-  end
-
 end
