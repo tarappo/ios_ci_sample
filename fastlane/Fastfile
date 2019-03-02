@@ -3,17 +3,14 @@ default_platform :ios
 platform :ios do
   keychain_name = "ios-build.keychain"
   keychain_password = SecureRandom.base64
+  build_number = ENV["BUILD_NUMBER"] ||= "0"
 
  
   lane :build do
     clean_build_artifacts
-    increment_build_number
-    commit_version_bump(
-      message: 'increment build number by fastlane',
-      xcodeproj: 'ci-sample.xcodeproj',
-      force: true
+    increment_build_number(
+      build_number: "0." + ENV["BUILD_NUMBER"]
     )
-    push_to_git_remote
 
     gym(
       project: "ci-sample.xcodeproj",
@@ -25,13 +22,10 @@ platform :ios do
 
   lane :build_adhoc do
     clean_build_artifacts
-    increment_build_number
-    commit_version_bump(
-      message: 'increment build number by fastlane',
-      xcodeproj: 'ci-sample.xcodeproj',
-      force: true
+    increment_build_number(
+      build_number: "1." + ENV["BUILD_NUMBER"]
     )
-    push_to_git_remote
+
 
     gym(
       project: "ci-sample.xcodeproj",
