@@ -5,11 +5,13 @@ iOSアプリのコードだけでなく、CIに関する情報も併せて管理
 - [ドキュメント](docs/README.md)
 
 ## Branch
+本リポジトリは次のブランチから構成されています。
 
-- relase
- - master
- - feature/*
-   - feature/sample
+- master： 最新
+- relase： リリース用
+- feature/*： 開発用
+  - feature/sample
+
 
 ## CI Badge
 Badgeが利用できるCIサービスについては以下に全て貼ります。
