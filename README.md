@@ -4,6 +4,13 @@ iOSアプリのコードだけでなく、CIに関する情報も併せて管理
 
 - [ドキュメント](docs/README.md)
 
+## Branch
+
+- relase
+ - master
+ - feature/*
+   - feature/sample
+
 ## CI Badge
 Badgeが利用できるCIサービスについては以下に全て貼ります。
 
