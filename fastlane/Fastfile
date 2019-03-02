@@ -5,7 +5,10 @@ platform :ios do
   keychain_password = SecureRandom.base64
   build_number = ENV["BUILD_NUMBER"] ||= "0"
 
- 
+  lane :test do
+    scan
+  end
+
   lane :build do
     clean_build_artifacts
     increment_build_number(
