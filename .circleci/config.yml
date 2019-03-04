@@ -5,8 +5,17 @@
 version: 2
 jobs:
   build:
+    macos:
+      xcode: "10.2.0"
 
-    # Specify the Xcode version to use
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: build
+          command: bundle exec fastlane build
+
+  test:
     macos:
       xcode: "10.2.0"
 
@@ -28,3 +37,10 @@ jobs:
       - store_artifacts:
           path: ~/Library/Logs/scan
           destination: scan-logs
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - test
+
