@@ -61,7 +61,7 @@ workflows:
       - build:
           requires:
             - test
-      - sample
+      - sample:
           branches:
           only: /support\/.*/
 
