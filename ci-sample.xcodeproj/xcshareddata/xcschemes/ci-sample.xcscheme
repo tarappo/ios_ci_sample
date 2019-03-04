@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "73FF8399222B1EFA00A3D3ED"
+               BlueprintIdentifier = "73FF83B5222B1FDF00A3D3ED"
                BuildableName = "ci-sampleTests.xctest"
                BlueprintName = "ci-sampleTests"
                ReferencedContainer = "container:ci-sample.xcodeproj">
