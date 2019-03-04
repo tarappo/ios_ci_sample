@@ -62,19 +62,4 @@ workflows:
           requires:
             - test
       - sample
-  release:
-    jobs:
-      - test:
-        filters:
-            branches:
-              only: release
-      - release_build:
-          requires:
-            - test
-      - update_metadata
-      - upload_ipa_to_app_store_connect:
-          requires:
-            - test
-            - release_build
-            - update_metadata
 
