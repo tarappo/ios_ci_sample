@@ -64,5 +64,5 @@ workflows:
       - sample:
           filters:
             branches:
-              only: /support\/*/
+              only: /support\/.*/
 
