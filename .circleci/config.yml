@@ -62,6 +62,7 @@ workflows:
           requires:
             - test
       - sample:
-          branches:
-          only: /support.*/
+          filters:
+            branches:
+              only: /support.*/
 
