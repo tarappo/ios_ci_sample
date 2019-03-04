@@ -1,0 +1,8 @@
+git_url(ENV["GIT_URL"])
+
+storage_mode("git")
+
+type("development") # The default type, can be: appstore, adhoc, enterprise or development
+
+app_identifier(["com.tarappo.cisample"])
+username(ENV["USERNAME"])
