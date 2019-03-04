@@ -5,7 +5,7 @@ iOSアプリのコードだけでなく、CI/CDサービスに関する情報も
 - [ドキュメント](docs/README.md)
 
 
-## CI Badge
+## Badge
 Badgeが利用できるCIサービスについては以下に全て貼ります。
 
 [![Build Status](https://app.bitrise.io/app/599bf37ff6e4fd95/status.svg?token=Ae8Nu14F-mYGMFmmuDFijQ&branch=master)](https://app.bitrise.io/app/599bf37ff6e4fd95)
