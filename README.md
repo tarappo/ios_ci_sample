@@ -4,19 +4,6 @@ iOSアプリのコードだけでなく、CI/CDサービスに関する情報も
 
 - [ドキュメント](docs/README.md)
 
-# ブランチ管理
-
- * master
-   * 最新
- * feature/*
-   * 機能開発用
- * release
-   * リリースする用
-
-機能開発時にmasterからfeature/xxxをきります。
-開発が終わったらPRをmasterに向けてだします。
-リリースのタイミングでreleaseにmergeします。
-
 
 ## CI Badge
 Badgeが利用できるCIサービスについては以下に全て貼ります。
