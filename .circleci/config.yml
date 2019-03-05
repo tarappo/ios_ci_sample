@@ -41,9 +41,6 @@ jobs:
           name: run test
           command: bundle exec fastlane test
 
-      # Collect XML test results data to show in the UI,
-      # and save the same XML files under test-results folder
-      # in the Artifacts tab
       - store_test_results:
           path: test_output/report.xml
       - store_artifacts:
@@ -70,7 +67,7 @@ workflows:
       - test:
           filters:
             branches:
-              only: release
+              only: /release*/
       - build:
           requires:
             - test
