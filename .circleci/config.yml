@@ -65,4 +65,12 @@ workflows:
           filters:
             branches:
               only: /support\/.*/
-
+  release:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: release
+      - build:
+          requires:
+            - test
