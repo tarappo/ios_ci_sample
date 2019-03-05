@@ -4,17 +4,6 @@
 #
 version: 2
 jobs:
-  sample:
-    macos:
-      xcode: "10.2.0"
-    working_directory: /Users/distiller/project
-    environment:
-      FL_OUTPUT_DIR: output
-
-    steps:
-      - checkout
-      - run: bundle install
-
   build:
     macos:
       xcode: "10.2.0"
@@ -50,15 +39,62 @@ jobs:
           path: ~/Library/Logs/scan
           destination: scan-logs
 
+  deploygate:
+    macos:
+      xcode: "10.2.0"
+    working_directory: /Users/distiller/project
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: upload to deploygate
+          command: bundle exec fastlane upload_deploygate
+
+
+  update_metadata:
+    macos:
+      xcode: "10.2.0"
+    working_directory: /Users/distiller/project
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: update metadata
+          command: bundle exec fastlane update_metadata
+
+
+  release:
+    macos:
+      xcode: "10.2.0"
+    working_directory: /Users/distiller/project
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: release
+          command: bundle exec fastlane release
+
+
 workflows:
   version: 2
-  build_and_test:
+  feature:
     jobs:
       - test
       - build:
           requires:
             - test
-      - sample:
+      - deploygate:
+          requires:
+            - build
           filters:
             branches:
               only: /support\/.*/
@@ -68,6 +104,9 @@ workflows:
           filters:
             branches:
               only: /release*/
-      - build:
+      - release_build:
           requires:
             - test
+      - update_metadata:
+          requires:
+            - release_build
