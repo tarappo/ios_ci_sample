@@ -103,9 +103,9 @@ workflows:
           filters:
             branches:
               only: /release*/
-      - release_build:
-          requires:
-            - test
       - update_metadata:
           requires:
-            - release_build
+            - test
+      - release_build:
+          requires:
+            - update_metadata
