@@ -60,6 +60,15 @@ platform :ios do
     )
   end
 
+
+  desc "メタデータの更新"
+  lane :update_metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false
+    )
+  end
+
   desc "リリース処理"
   lane :release do
     deliver(
@@ -67,7 +76,7 @@ platform :ios do
       automatic_release: true,
       force: true,
       skip_binary_upload: false,
-      skip_metadata: false
+      skip_metadata: true
     )
   end
 
