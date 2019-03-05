@@ -9,6 +9,7 @@ platform :ios do
   deploygate_api_token = ENV["DEPLOYGATE_API_TOKEN"]
   deploygate_user_name = ENV["DEPLOYGATE_USER_NAME"]
   deploygate_message   = ENV["DEPLOYGATE_MESSAGE"] ||= "今回は特にありません"
+  ipa_file = "ci-sample.ipa"
 
   before_all do
     setup_circle_ci
@@ -55,7 +56,7 @@ platform :ios do
     deploygate(
       api_token: deploygate_api_token,
       user: deploygate_user_name,
-      ipa: lane_context[SharedValues::IPA_OUTPUT_PATH],
+      ipa: ipa_file,
       message: deploygate_message
     )
   end
