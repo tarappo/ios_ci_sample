@@ -56,7 +56,10 @@ jobs:
           command: bundle exec fastlane test
 
       - store_test_results:
-          path: fastlane/test_output/report.xml
+          path: fastlane/test_output/report.junit
+      - store_artifacts:
+          path: fastlane/test_output/report.html
+          destination: html-report
       - store_artifacts:
           path: ~/Library/Logs/scan
           destination: scan-logs
