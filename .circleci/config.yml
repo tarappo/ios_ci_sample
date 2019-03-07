@@ -22,10 +22,11 @@ jobs:
           name: upload to deploygate
           command: bundle exec fastlane upload_deploygate
       - run:
+          name: copy ipa file
           command: cp $IPA_FILE ~/
       - store_artifacts:
           path: ~/ci-sample.ipa
-          destination: debug
+          destination: debug-ipa-file
 
   test:
     macos:
@@ -78,10 +79,11 @@ jobs:
           name: build
           command: bundle exec fastlane release_build
       - run:
+          name: copy ipa file
           command: cp $IPA_FILE ~/
       - store_artifacts:
           path: ~/ci-sample.ipa
-          destination: release
+          destination: release-ipa-file
       - run:
           name: release
           command: bundle exec fastlane release
@@ -98,6 +100,7 @@ workflows:
       - build_and_upload:
           requires:
             - test
+      - update_metadata
   release:
     jobs:
       - test:
