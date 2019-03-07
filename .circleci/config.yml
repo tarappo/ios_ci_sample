@@ -53,8 +53,6 @@ jobs:
     macos:
       xcode: "10.2.0"
     working_directory: ~/sample_project
-    environment:
-      FL_OUTPUT_DIR: output
 
     steps:
       - checkout
