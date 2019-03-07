@@ -25,24 +25,6 @@ jobs:
           path: $IPA_FILE
           destination: debug
 
-  release_build:
-    macos:
-      xcode: "10.2.0"
-    working_directory: ~/sample_project
-    environment:
-      FL_OUTPUT_DIR: output
-      IPA_FILE: $FL_OUTPUT_DIR/gym/ci-sample.ipa
-
-    steps:
-      - checkout
-      - run: bundle install
-      - run:
-          name: build
-          command: bundle exec fastlane release_build
-      - store_artifacts:
-          path: $IPA_FILE
-          destination: release
-
   test:
     macos:
       xcode: "10.2.0"
@@ -56,9 +38,9 @@ jobs:
           command: bundle exec fastlane test
 
       - store_test_results:
-          path: fastlane/test_output/report.junit
+          path: fastlane/test_output/
       - store_artifacts:
-          path: fastlane/test_output/report.html
+          path: fastlane/test_output/
           destination: html-report
       - store_artifacts:
           path: ~/Library/Logs/scan
@@ -85,10 +67,17 @@ jobs:
     working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
+      IPA_FILE: $FL_OUTPUT_DIR/gym/ci-sample.ipa
 
     steps:
       - checkout
       - run: bundle install
+      - run:
+          name: build
+          command: bundle exec fastlane release_build
+      - store_artifacts:
+          path: $IPA_FILE
+          destination: release
       - run:
           name: release
           command: bundle exec fastlane release
