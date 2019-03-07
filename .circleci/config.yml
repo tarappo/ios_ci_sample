@@ -21,8 +21,10 @@ jobs:
       - run:
           name: upload to deploygate
           command: bundle exec fastlane upload_deploygate
+      - run:
+          command: cp $IPA_FILE ~/
       - store_artifacts:
-          path: $IPA_FILE
+          path: ~/ci-sample.ipa
           destination: debug
 
   test:
@@ -41,7 +43,7 @@ jobs:
           path: fastlane/test_output/
       - store_artifacts:
           path: fastlane/test_output/
-          destination: html-report
+          destination: test-report
       - store_artifacts:
           path: ~/Library/Logs/scan
           destination: scan-logs
@@ -75,8 +77,10 @@ jobs:
       - run:
           name: build
           command: bundle exec fastlane release_build
+      - run:
+          command: cp $IPA_FILE ~/
       - store_artifacts:
-          path: $IPA_FILE
+          path: ~/ci-sample.ipa
           destination: release
       - run:
           name: release
