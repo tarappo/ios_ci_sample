@@ -7,7 +7,7 @@ jobs:
   build_and_upload:
     macos:
       xcode: "10.2.0"
-    working_directory: /Users/distiller/project
+    working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
 
@@ -24,7 +24,7 @@ jobs:
   release_build:
     macos:
       xcode: "10.2.0"
-    working_directory: /Users/distiller/project
+    working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
 
@@ -38,7 +38,7 @@ jobs:
   test:
     macos:
       xcode: "10.2.0"
-    working_directory: /Users/distiller/project
+    working_directory: ~/sample_project
 
     steps:
       - checkout
@@ -59,7 +59,7 @@ jobs:
   update_metadata:
     macos:
       xcode: "10.2.0"
-    working_directory: /Users/distiller/project
+    working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
 
@@ -74,7 +74,7 @@ jobs:
   release:
     macos:
       xcode: "10.2.0"
-    working_directory: /Users/distiller/project
+    working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
 
