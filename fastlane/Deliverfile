@@ -4,7 +4,8 @@
 app_identifier "com.tarappo.cisample"
 username ENV["ITUNES_USER_NAME"]
 
-
 release_notes({
+  'en-US'   => "Sample Release Note",
   'default' => "Sample Release Note"
 })
+
