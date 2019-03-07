@@ -91,16 +91,21 @@ jobs:
 
 workflows:
   version: 2
+  sample:
+    jobs:
+      - update_metadata:
+          filters:
+            branches:
+              only: /support\/.*/
   feature:
     jobs:
       - test:
           filters:
             branches:
-              only: /support\/.*/
+              only: /feature\/.*/
       - build_and_upload:
           requires:
             - test
-      - update_metadata
   release:
     jobs:
       - test:
