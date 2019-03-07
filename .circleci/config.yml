@@ -10,7 +10,7 @@ jobs:
     working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
-      IPA_FILE: output/gym/ci-sample.ipa
+      IPA_FILE: $FL_OUTPUT_DIR/gym/ci-sample.ipa
 
     steps:
       - checkout
@@ -21,6 +21,9 @@ jobs:
       - run:
           name: upload to deploygate
           command: bundle exec fastlane upload_deploygate
+      - store_artifacts:
+          path: $IPA_FILE
+          destination: debug
 
   release_build:
     macos:
@@ -35,6 +38,9 @@ jobs:
       - run:
           name: build
           command: bundle exec fastlane release_build
+      - store_artifacts:
+          path: $IPA_FILE
+          destination: release
 
   test:
     macos:
@@ -49,10 +55,7 @@ jobs:
           command: bundle exec fastlane test
 
       - store_test_results:
-          path: test_output/report.xml
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
+          path: fastlane/test_output/report.xml
       - store_artifacts:
           path: ~/Library/Logs/scan
           destination: scan-logs
