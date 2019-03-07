@@ -10,7 +10,7 @@ jobs:
     working_directory: ~/sample_project
     environment:
       FL_OUTPUT_DIR: output
-      IPA_FILE: ${CIRCLE_WORKING_DIRECTORY}/${FL_OUTPUT_DIR}/gym/ci-sample.ipa
+      IPA_FILE: output/gym/ci-sample.ipa
 
     steps:
       - checkout
