@@ -4,6 +4,39 @@
 #
 version: 2
 jobs:
+  build:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout
+      - run: bundle install
+      - run:
+          name: build
+          command: bundle exec fastlane build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  upload_deploygate:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
+      IPA_FILE: output/gym/ci-sample.ipa
+    
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: upload to deploygate
+          command: bundle exec fastlane upload_deploygate
+
   build_and_upload:
     macos:
       xcode: "10.2.0"
@@ -91,10 +124,13 @@ workflows:
   version: 2
   sample:
     jobs:
-      - update_metadata:
+      - build:
           filters:
             branches:
               only: /support\/.*/
+      - upload_deploygate:
+          requires:
+            - build
   feature:
     jobs:
       - test:
