@@ -129,6 +129,7 @@ workflows:
             branches:
               only: /support\/.*/
       - upload_deploygate:
+          type: approval
           requires:
             - build
   feature:
