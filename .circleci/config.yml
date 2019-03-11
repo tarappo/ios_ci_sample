@@ -13,7 +13,14 @@ jobs:
 
     steps:
       - checkout
-      - run: bundle install
+      - restore_cache:
+        keys:
+          - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: build
           command: bundle exec fastlane build
@@ -68,7 +75,14 @@ jobs:
 
     steps:
       - checkout
-      - run: bundle install
+      - restore_cache:
+        keys:
+          - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: run test
           command: bundle exec fastlane test
@@ -89,7 +103,14 @@ jobs:
 
     steps:
       - checkout
-      - run: bundle install
+      - restore_cache:
+        keys:
+          - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: update metadata
           command: bundle exec fastlane update_metadata
@@ -105,7 +126,14 @@ jobs:
 
     steps:
       - checkout
-      - run: bundle install
+      - restore_cache:
+        keys:
+          - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: build
           command: bundle exec fastlane release_build
