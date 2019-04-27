@@ -79,6 +79,8 @@ jobs:
     macos:
       xcode: "10.2.0"
     working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
 
     steps:
       - checkout
@@ -93,14 +95,11 @@ jobs:
       - run:
           name: run test
           command: bundle exec fastlane test
-      - run:
-          name: rename file
-          command: mv fastlane/test_output/report.junit fastlane/test_output/junit.xml
 
       - store_test_results:
-          path: fastlane/test_output/
+          path: output/scan/
       - store_artifacts:
-          path: fastlane/test_output/
+          path: output/
           destination: test-report
       - store_artifacts:
           path: ~/Library/Logs/scan
@@ -165,7 +164,7 @@ workflows:
       - build:
           filters:
             branches:
-              only: /support\/.*/
+              only: /sample\/.*/
       - upload_deploygate:
           requires:
             - build
