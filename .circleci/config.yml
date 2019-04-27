@@ -95,9 +95,12 @@ jobs:
       - run:
           name: run test
           command: bundle exec fastlane test
+      - run:
+          name: not rspec but rspec
+          command: mv output/scan output/rspec
 
       - store_test_results:
-          path: output/scan/
+          path: output/rspec
       - store_artifacts:
           path: output/
           destination: test-report
