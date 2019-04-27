@@ -4,6 +4,16 @@ platform :ios do
   keychain_name = "ios-build.keychain"
   keychain_password = SecureRandom.base64
   build_number = ENV["BUILD_NUMBER"] ||= "0"
+  develop_build_number = "0.0." + build_number
+  release_build_number = "1.0." + build_number
+  deploygate_api_token = ENV["DEPLOYGATE_API_TOKEN"]
+  deploygate_user_name = ENV["DEPLOYGATE_USER_NAME"]
+  deploygate_message   = ENV["DEPLOYGATE_MESSAGE"] ||= "今回は特にありません"
+  ipa_file = ENV["IPA_FILE"] ||= "ci-sample.ipa"
+
+  before_all do
+    setup_circle_ci
+  end
 
   lane :test do
     scan
@@ -12,10 +22,11 @@ platform :ios do
   lane :build do
     clean_build_artifacts
     increment_build_number(
-      build_number: "0." + ENV["BUILD_NUMBER"]
+      build_number: develop_build_number
     )
 
-    gym(
+    match(type: "development")
+    ipa_file = gym(
       project: "ci-sample.xcodeproj",
       scheme: "ci-sample",
       configuration: "Debug",
@@ -23,20 +34,54 @@ platform :ios do
     )
   end
 
-  lane :build_adhoc do
+  lane :release_build do
     clean_build_artifacts
     increment_build_number(
-      build_number: "1." + ENV["BUILD_NUMBER"]
+      build_number: release_build_number
     )
 
 
-    gym(
+    # change appstore
+    match(type: "adhoc")
+    ipa_file = gym(
       project: "ci-sample.xcodeproj",
       scheme: "ci-sample",
       configuration: "Release",
       export_method: "ad-hoc"
     )
   end
+
+  desc "DeployGateにipaファイルをアップロードする"
+  lane :upload_deploygate do
+    deploygate(
+      api_token: deploygate_api_token,
+      user: deploygate_user_name,
+      ipa: ipa_file,
+      message: deploygate_message
+    )
+  end
+
+
+  desc "メタデータの更新"
+  lane :update_metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: false,
+      force: true
+    )
+  end
+
+  desc "リリース処理"
+  lane :release do
+    deliver(
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      skip_binary_upload: false,
+      skip_metadata: true
+    )
+  end
+
 
   lane :setup_certificate do
     create_keychain(

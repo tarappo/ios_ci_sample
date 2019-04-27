@@ -423,7 +423,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 0.0;
 				DEVELOPMENT_TEAM = V25827DWJV;
 				INFOPLIST_FILE = "ci-sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -431,7 +431,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tarappo.cisample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "ci-sample-dev";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.tarappo.cisample";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -442,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 0.0;
 				DEVELOPMENT_TEAM = V25827DWJV;
 				INFOPLIST_FILE = "ci-sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

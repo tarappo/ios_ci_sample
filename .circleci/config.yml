@@ -5,34 +5,187 @@
 version: 2
 jobs:
   build:
-
-    # Specify the Xcode version to use
     macos:
       xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
 
     steps:
       - checkout
-
-      # Install CocoaPods
-      # - run:
-      #     name: Install CocoaPods
-      #     command: pod install
-
-      # Build the app and run tests
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
-          name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 6
+          name: build
+          command: bundle exec fastlane build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
-      # Collect XML test results data to show in the UI,
-      # and save the same XML files under test-results folder
-      # in the Artifacts tab
-      - store_test_results:
-          path: test_output/report.xml
+  upload_deploygate:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
+      IPA_FILE: output/gym/ci-sample.ipa
+    
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: upload to deploygate
+          command: bundle exec fastlane upload_deploygate
+
+  build_and_upload:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
+      IPA_FILE: output/gym/ci-sample.ipa
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: build
+          command: bundle exec fastlane build
+      - run:
+          name: upload to deploygate
+          command: bundle exec fastlane upload_deploygate
+      - run:
+          name: copy ipa file
+          command: cp $IPA_FILE ~/
       - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
+          path: ~/ci-sample.ipa
+          destination: debug-ipa-file
+
+  test:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: run test
+          command: bundle exec fastlane test
+
+      - store_test_results:
+          path: output/scan
+      - store_artifacts:
+          path: output/
+          destination: test-report
       - store_artifacts:
           path: ~/Library/Logs/scan
           destination: scan-logs
+
+  update_metadata:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: update metadata
+          command: bundle exec fastlane update_metadata
+
+
+  release:
+    macos:
+      xcode: "10.2.0"
+    working_directory: ~/sample_project
+    environment:
+      FL_OUTPUT_DIR: output
+      IPA_FILE: output/gym/ci-sample.ipa
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+          key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      - run:
+          name: build
+          command: bundle exec fastlane release_build
+      - run:
+          name: copy ipa file
+          command: cp $IPA_FILE ~/
+      - store_artifacts:
+          path: ~/ci-sample.ipa
+          destination: release-ipa-file
+      - run:
+          name: release
+          command: bundle exec fastlane release
+
+
+workflows:
+  version: 2
+  sample:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /sample\/.*/
+      - upload_deploygate:
+          requires:
+            - build
+  feature:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: /support\/.*/
+      - build_and_upload:
+          requires:
+            - test
+  release:
+    jobs:
+      - test:
+          filters:
+            branches:
+              only: /release*/
+      - update_metadata:
+          requires:
+            - test
+      - release_build:
+          requires:
+            - update_metadata
