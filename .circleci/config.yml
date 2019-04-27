@@ -100,7 +100,7 @@ jobs:
           command: mv output/scan output/junit/xUnit
 
       - store_test_results:
-          path:output/junit/xUnit
+          path: output/junit/xUnit
       - store_artifacts:
           path: output/
           destination: test-report
