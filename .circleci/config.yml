@@ -95,12 +95,9 @@ jobs:
       - run:
           name: run test
           command: bundle exec fastlane test
-      - run:
-          name: change dir name
-          command: mv output/scan output/junit/xUnit
 
       - store_test_results:
-          path: output/junit/xUnit
+          path: output/scan
       - store_artifacts:
           path: output/
           destination: test-report
