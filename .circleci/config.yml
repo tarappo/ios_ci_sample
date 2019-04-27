@@ -93,6 +93,9 @@ jobs:
       - run:
           name: run test
           command: bundle exec fastlane test
+      - run:
+          name: rename file
+          command: mv fastlane/test_output/report.junit fastlane/test_output/junit.xml
 
       - store_test_results:
           path: fastlane/test_output/
@@ -171,7 +174,7 @@ workflows:
       - test:
           filters:
             branches:
-              only: /feature\/.*/
+              only: /support\/.*/
       - build_and_upload:
           requires:
             - test
