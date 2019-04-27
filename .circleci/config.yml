@@ -96,7 +96,7 @@ jobs:
           name: run test
           command: bundle exec fastlane test
       - run:
-          name: may fail the step
+          name: change dir name
           command: mv output/scan output/junit/xUnit
 
       - store_test_results:
