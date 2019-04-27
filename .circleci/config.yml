@@ -97,10 +97,10 @@ jobs:
           command: bundle exec fastlane test
       - run:
           name: may fail the step
-          command: mv output/fail
+          command: mv output/scan output/junit/xUnit
 
       - store_test_results:
-          path: output/rspec
+          path:output/junit/xUnit
       - store_artifacts:
           path: output/
           destination: test-report
