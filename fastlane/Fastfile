@@ -16,7 +16,7 @@ platform :ios do
     )
 
     gym(
-      project: "ci-sample.xcodeproj",
+      workspace: "ci-sample.xcworkspace",
       scheme: "ci-sample",
       configuration: "Debug",
       export_method: "development"
@@ -31,7 +31,7 @@ platform :ios do
 
 
     gym(
-      project: "ci-sample.xcodeproj",
+      workspace: "ci-sample.xcworkspace",
       scheme: "ci-sample",
       configuration: "Release",
       export_method: "ad-hoc"
