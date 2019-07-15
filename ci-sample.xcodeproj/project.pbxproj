@@ -186,6 +186,7 @@
 					};
 					7D8A8B3E1F41E46E00601864 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = V25827DWJV;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -528,14 +529,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0.0;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V25827DWJV;
 				INFOPLIST_FILE = "ci-sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tarappo.cisample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ci-sample-dev";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -549,14 +550,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 0.0;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = V25827DWJV;
 				INFOPLIST_FILE = "ci-sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tarappo.cisample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ci-sample-adhoc";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
