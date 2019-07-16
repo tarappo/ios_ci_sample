@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73B7203422DE92F7001FA8E1 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B7203322DE92F7001FA8E1 /* Sample.swift */; };
 		73FF83C1222B200C00A3D3ED /* ci_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FF83C0222B200C00A3D3ED /* ci_sampleTests.swift */; };
 		7D8A8B431F41E46E00601864 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A8B421F41E46E00601864 /* AppDelegate.swift */; };
 		7D8A8B451F41E46E00601864 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D8A8B441F41E46E00601864 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		5E122DAE76E278E2974CF092 /* Pods-ci-sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ci-sample.debug.xcconfig"; path = "Target Support Files/Pods-ci-sample/Pods-ci-sample.debug.xcconfig"; sourceTree = "<group>"; };
 		5E4DE213638BF8791D80E6AF /* Pods-ci-sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ci-sample.release.xcconfig"; path = "Target Support Files/Pods-ci-sample/Pods-ci-sample.release.xcconfig"; sourceTree = "<group>"; };
 		6BDC5F4861D3896EDF217093 /* Pods-ci-sampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ci-sampleTests.release.xcconfig"; path = "Target Support Files/Pods-ci-sampleTests/Pods-ci-sampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		73B7203322DE92F7001FA8E1 /* Sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		73FF83B6222B1FDF00A3D3ED /* ci-sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ci-sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73FF83BA222B1FDF00A3D3ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73FF83C0222B200C00A3D3ED /* ci_sampleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ci_sampleTests.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				7D8A8B491F41E46E00601864 /* Assets.xcassets */,
 				7D8A8B4B1F41E46E00601864 /* LaunchScreen.storyboard */,
 				7D8A8B4E1F41E46E00601864 /* Info.plist */,
+				73B7203322DE92F7001FA8E1 /* Sample.swift */,
 			);
 			path = "ci-sample";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D8A8B451F41E46E00601864 /* ViewController.swift in Sources */,
+				73B7203422DE92F7001FA8E1 /* Sample.swift in Sources */,
 				7D8A8B431F41E46E00601864 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
