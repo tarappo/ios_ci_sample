@@ -37,6 +37,13 @@
             BlueprintName = "ci-sample"
             ReferencedContainer = "container:ci-sample.xcodeproj">
          </BuildableReference>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "73FF83B5222B1FDF00A3D3ED"
+            BuildableName = "ci-sampleTests.xctest"
+            BlueprintName = "ci-sampleTests"
+            ReferencedContainer = "container:ci-sample.xcodeproj">
+         </BuildableReference>
       </CodeCoverageTargets>
       <Testables>
          <TestableReference
