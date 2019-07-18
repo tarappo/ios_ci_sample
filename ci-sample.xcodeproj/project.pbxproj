@@ -142,6 +142,7 @@
 				73FF83B2222B1FDF00A3D3ED /* Sources */,
 				73FF83B3222B1FDF00A3D3ED /* Frameworks */,
 				73FF83B4222B1FDF00A3D3ED /* Resources */,
+				6A0C2FDB185464D57700AE16 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -234,6 +235,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6A0C2FDB185464D57700AE16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ci-sampleTests/Pods-ci-sampleTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/iOSSnapshotTestCase/FBSnapshotTestCase.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSnapshotTestCase.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ci-sampleTests/Pods-ci-sampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E3CECF8D9A852927DFCB043 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
