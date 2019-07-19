@@ -60,7 +60,7 @@ platform :ios do
 
   private_lane :build do |options|
     configuration = options[:type]
-    export_method = type == "Release" ? "appstore" : "development"
+    export_method = configuration == "Release" ? "appstore" : "development"
 
     gym(
       workspace: "ci-sample.xcworkspace",
