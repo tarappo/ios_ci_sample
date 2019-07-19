@@ -9,7 +9,16 @@ platform :ios do
     scan
   end
 
-  lane :build do
+  lane :build_debug_without_match do
+    clean_build_artifacts
+    increment_build_number(
+      build_number: "0." + ENV["BUILD_NUMBER"]
+    )
+
+    build(type: "Debug")
+  end
+
+  lane :build_debug do
     match(type: "development", readonly: is_ci)
 
     clean_build_artifacts
@@ -17,12 +26,7 @@ platform :ios do
       build_number: "0." + ENV["BUILD_NUMBER"]
     )
 
-    gym(
-      workspace: "ci-sample.xcworkspace",
-      scheme: "ci-sample",
-      configuration: "Debug",
-      export_method: "development"
-    )
+    build(type: "Debug")
   end
 
   lane :build_release do
@@ -33,13 +37,7 @@ platform :ios do
       build_number: "1." + ENV["BUILD_NUMBER"]
     )
 
-
-    gym(
-      workspace: "ci-sample.xcworkspace",
-      scheme: "ci-sample",
-      configuration: "Release",
-      export_method: "adppstore"
-    )
+    build(type: "Release")
   end
 
   lane :setup_certificate do
@@ -57,6 +55,18 @@ platform :ios do
       certificate_password: ENV["KEY_PASSWORD"],
       keychain_name: keychain_name,
       keychain_password: keychain_password
+    )
+  end
+
+  private_lane :build do |options|
+    configuration = options[:type]
+    export_method = type == "Release" ? "appstore" : "development"
+
+    gym(
+      workspace: "ci-sample.xcworkspace",
+      scheme: "ci-sample",
+      configuration: configuration,
+      export_method: export_method
     )
   end
 end
