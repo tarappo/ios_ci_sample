@@ -22,4 +22,16 @@ class ci_sampleTests: XCTestCase {
         let result = sample.add(3, 4)
         XCTAssertEqual(result, 7)
     }
+
+    func testCalcWithNegativeNumber() {
+        let sample = Sample()
+        let result = sample.add(-3, 4)
+        XCTAssertEqual(result, 1)
+    }
+
+    func testCalcWithNegativeNumbers() {
+        let sample = Sample()
+        let result = sample.add(-1, -4)
+        XCTAssertEqual(result, -5)
+    }
 }
