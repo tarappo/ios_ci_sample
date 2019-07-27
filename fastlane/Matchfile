@@ -1,0 +1,4 @@
+git_url(ENV['MATCH_URL'])
+
+storage_mode("git")
+app_identifier(["com.tarappo.cisample"])
