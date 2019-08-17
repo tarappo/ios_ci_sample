@@ -8,22 +8,14 @@ iOSアプリのコードだけでなく、CI/CDサービスに関する情報も
 
  * master
    * 最新
+ * v1.2.0
+   * バージョンブランチ
  * feature/*
    * 機能開発用
- * release
-   * リリースする用
 
-機能開発時にmasterからfeature/xxxをきります。
-開発が終わったらPRをmasterに向けてだします。
-リリースのタイミングでreleaseにmergeします。
+## Badge
 
-
-## CI Badge
-Badgeが利用できるCIサービスについては以下に全て貼ります。
-
-[![Build Status](https://app.bitrise.io/app/599bf37ff6e4fd95/status.svg?token=Ae8Nu14F-mYGMFmmuDFijQ&branch=master)](https://app.bitrise.io/app/599bf37ff6e4fd95)
+[![Build Status](https://app.bitrise.io/app/00135807a432fcfc/status.svg?token=zLXDRYdlQMyKbXskaKfoVA&branch=master)](https://app.bitrise.io/app/00135807a432fcfc)
 [![CircleCI](https://circleci.com/gh/tarappo/ci-sample-ios.svg?style=svg)](https://circleci.com/gh/tarappo/ci-sample-ios)
-[![Build Status](https://travis-ci.org/tarappo/ci-sample-ios.svg?branch=master)](https://travis-ci.org/tarappo/ci-sample-ios)
-
-## Other Badge
+[![codecov](https://codecov.io/gh/tarappo/ci-sample-ios/branch/master/graph/badge.svg)](https://codecov.io/gh/tarappo/ci-sample-ios)
 [![Dependency Status](https://dependencyci.com/github/tarappo/ci-sample-ios/badge)](https://dependencyci.com/github/tarappo/ci-sample-ios)
