@@ -88,6 +88,14 @@
 			path = "ci-sampleTests";
 			sourceTree = "<group>";
 		};
+		7D00957123102F6400192E44 /* ForTest */ = {
+			isa = PBXGroup;
+			children = (
+				73B7203322DE92F7001FA8E1 /* Sample.swift */,
+			);
+			path = ForTest;
+			sourceTree = "<group>";
+		};
 		7D8A8B361F41E46E00601864 = {
 			isa = PBXGroup;
 			children = (
@@ -111,13 +119,13 @@
 		7D8A8B411F41E46E00601864 /* ci-sample */ = {
 			isa = PBXGroup;
 			children = (
+				7D00957123102F6400192E44 /* ForTest */,
 				7D8A8B421F41E46E00601864 /* AppDelegate.swift */,
 				7D8A8B441F41E46E00601864 /* ViewController.swift */,
 				7D8A8B461F41E46E00601864 /* Main.storyboard */,
 				7D8A8B491F41E46E00601864 /* Assets.xcassets */,
 				7D8A8B4B1F41E46E00601864 /* LaunchScreen.storyboard */,
 				7D8A8B4E1F41E46E00601864 /* Info.plist */,
-				73B7203322DE92F7001FA8E1 /* Sample.swift */,
 			);
 			path = "ci-sample";
 			sourceTree = "<group>";
