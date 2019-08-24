@@ -239,7 +239,6 @@
 				TargetAttributes = {
 					73FF83B5222B1FDF00A3D3ED = {
 						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Manual;
 						TestTargetID = 7D8A8B3E1F41E46E00601864;
 					};
 					7D0095752310CE2B00192E44 = {
@@ -444,7 +443,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "ci-sampleTests/Info.plist";
@@ -482,7 +481,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "ci-sampleTests/Info.plist";
