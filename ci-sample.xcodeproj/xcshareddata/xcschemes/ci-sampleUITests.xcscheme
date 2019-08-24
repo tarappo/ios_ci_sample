@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7D8A8B3E1F41E46E00601864"
-               BuildableName = "ci-sample.app"
-               BlueprintName = "ci-sample"
+               BlueprintIdentifier = "7D0095752310CE2B00192E44"
+               BuildableName = "ci-sampleUITests.xctest"
+               BlueprintName = "ci-sampleUITests"
                ReferencedContainer = "container:ci-sample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D8A8B3E1F41E46E00601864"
-            BuildableName = "ci-sample.app"
-            BlueprintName = "ci-sample"
+            BlueprintIdentifier = "7D0095752310CE2B00192E44"
+            BuildableName = "ci-sampleUITests.xctest"
+            BlueprintName = "ci-sampleUITests"
             ReferencedContainer = "container:ci-sample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,16 +61,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D8A8B3E1F41E46E00601864"
-            BuildableName = "ci-sample.app"
-            BlueprintName = "ci-sample"
+            BlueprintIdentifier = "7D0095752310CE2B00192E44"
+            BuildableName = "ci-sampleUITests.xctest"
+            BlueprintName = "ci-sampleUITests"
             ReferencedContainer = "container:ci-sample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -80,16 +79,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7D8A8B3E1F41E46E00601864"
-            BuildableName = "ci-sample.app"
-            BlueprintName = "ci-sample"
+            BlueprintIdentifier = "7D0095752310CE2B00192E44"
+            BuildableName = "ci-sampleUITests.xctest"
+            BlueprintName = "ci-sampleUITests"
             ReferencedContainer = "container:ci-sample.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
