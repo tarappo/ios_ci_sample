@@ -1,6 +1,5 @@
 //
-//  ci_sampleTests.swift
-//  ci-sampleTests
+//  SampleTests.swift
 //
 //  Created by Toshiyuki Hirata on 2019/03/03.
 //  Copyright © 2019 tarappo. All rights reserved.
@@ -9,7 +8,7 @@
 import XCTest
 @testable import ci_sample
 
-class ci_sampleTests: XCTestCase {
+class SampleTests: XCTestCase {
     var calc: Sample!
 
     override func setUp() {
