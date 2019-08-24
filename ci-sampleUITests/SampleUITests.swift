@@ -24,4 +24,14 @@ class SampleUITests: XCTestCase {
 
         XCTAssertEqual("1クリック", labelText)
     }
+
+    func testMultiClick() {
+        let button = app.buttons["main_sample_button"]
+        for _ in 1...2 {
+            button.tap()
+        }
+        let labelText = app.staticTexts["main_sample_label"].label
+
+        XCTAssertEqual("2クリック", labelText)
+    }
 }
