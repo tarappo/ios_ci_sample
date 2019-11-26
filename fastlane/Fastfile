@@ -5,6 +5,26 @@ platform :ios do
   keychain_password = SecureRandom.base64
   build_number = ENV["BUILD_NUMBER"] ||= "0"
 
+  lane :build_for_testing do
+    xcodebuild(
+      workspace: "ci-sample.xcworkspace",
+      scheme: "ci-sampleUITests",
+      destination: 'generic/platform=iOS',
+      derivedDataPath: "./testing",
+      xcargs: "build-for-testing"
+    )
+  end
+
+  lane :test_without_building do
+    xcodebuild(
+      workspace: "ci-sample.xcworkspace",
+      scheme: "ci-sampleUITests",
+      destination: 'generic/platform=iOS',
+      derivedDataPath: "./testing",
+      xcargs: "test-without-building"
+    )
+  end
+
   lane :test do
     scan
   end
